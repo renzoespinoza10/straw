@@ -1160,7 +1160,10 @@ PYBIND11_MODULE(strawC, m) {
 m.doc() = "Fast hybrid tool for reading .hic files; see https://github.com/aidenlab/straw for documentation";
 py::class_<HiCFile>(m, "HiCFile")
 .def(py::init<string>())
-.def("getChromosomes", )
+.def("getChromosomes", &HiCFile::getChromosomes)
+.def("getResolutions", &HiCFile::getResolutions)
+.def("getGenomeID", &HiCFile::getGenomeID)
+.def("getMatrixZoomData", &HiCFile::getMatrixZoomData)
 ;
 
 m.def("strawC", &straw, "get contact records");
