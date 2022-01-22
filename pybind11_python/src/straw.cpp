@@ -1179,7 +1179,9 @@ py::class_<chromosome>(m, "chromosome")
 
 
 py::class_<MatrixZoomData>(m, "MatrixZoomData")
+//must include the & when defining parameters that require it
 .def(py::init<chromosome &, chromosome &, string &, string &, string &, int32_t, int32_t &, int64_t &, int64_t &, string &>())
+.def("getBlockRecordsWithNormalization", &MatrixZoomData::getBlockRecordsWithNormalization)
 ;
 
 
@@ -1189,6 +1191,7 @@ py::class_<HiCFile>(m, "HiCFile")
 .def("getResolutions", &HiCFile::getResolutions)
 .def("getGenomeID", &HiCFile::getGenomeID)
 .def("getMatrixZoomData", &HiCFile::getMatrixZoomData)
+
 ;
 
 #ifdef VERSION_INFO
